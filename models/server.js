@@ -1,5 +1,6 @@
 const express = require('express');
-var cors = require('cors')
+var cors = require('cors');
+const { json } = require('express');
 
 class Server{
 constructor(){
@@ -15,8 +16,12 @@ constructor(){
 
 middelewares(){
 
-    this.app.use(cors())
+//corso
+    this.app.use(cors());
 
+//lectura y parceo del body
+this.app.use(express,json());
+//directorio publico
     this.app.use(express.static('public'));
 }
 
